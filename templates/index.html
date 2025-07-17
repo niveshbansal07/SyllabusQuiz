@@ -1,13 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Quiz Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SyllabusQuiz - By SyllabusBuddy Team</title>
+  <meta name="description"
+    content="Generate AI-powered multiple-choice quizzes instantly with SyllabusQuiz. Perfect for students and educators to create tests from any topic with customizable difficulty and number of questions.">
+  <!-- Keywords -->
+  <meta name="keywords"
+    content="SyllabusQuiz, AI quiz generator, MCQ maker, generate questions from syllabus, online test creator, AI quiz, multiple choice questions, educational quiz, smart exam prep, unit-wise questions, create custom quizzes, syllabus-based quiz, chapter-wise MCQ, generate quiz from topic, quiz from syllabus, AI for education, custom difficulty quiz, study smarter, student exam preparation, interactive quizzes">
+  <!-- Author -->
+  <meta name="author" content="SyllabusBuddy Team">
+  <link rel="canonical" href="https://syllabusquiz.onrender.com/">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="SyllabusQuiz – Generate AI-Based MCQ Quizzes Instantly">
+  <meta property="og:description"
+    content="Create smart, custom multiple-choice quizzes from any topic using AI. Perfect for All students and educators.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://syllabusquiz.onrender.com/">
+  <meta property="og:image" content="https://syllabusquiz.onrender.com/static/logo.png">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SyllabusQuiz – Instantly Generate AI-Powered MCQ Quizzes">
+  <meta name="twitter:description"
+    content="Create custom multiple-choice quizzes from any topic using AI. Perfect for BCA, BTech, MCA students and educators.">
+  <meta name="twitter:image" content="https://syllabusquiz.onrender.com/static/logo.png">
+  <meta name="twitter:url" content="https://syllabusquiz.onrender.com/">
+
+
+
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='navbar-footer.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="../static/logo.png" type="image/png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "SyllabusQuiz",
+  "url": "https://syllabusquiz.onrender.com/",
+  "logo": "https://syllabusquiz.onrender.com/assets/syllabusquiz-logo.png",
+  "description": "SyllabusQuiz is an AI-powered tool that generates multiple-choice questions (MCQs) based on any topic with difficulty levels. Perfect for BCA, BTech, and MCA exam preparation.",
+  "sameAs": [
+    "https://github.com/niveshbansal07/SyllabusQuiz",
+  ]
+}
+</script>
+
+
 </head>
+
 <body>
 
   <header class="navbar">
@@ -24,7 +70,7 @@
 
   <div class="container">
     <h1 class="main-title">AI Quiz Generator - Create Tests & Quizzes Online</h1>
-    
+
     <div class="card">
       <h2>Input Your Content</h2>
       <textarea placeholder="e.g., Python Basics or Photosynthesis..." id="topicInput"></textarea>
@@ -56,7 +102,8 @@
       <div class="footer-logo">
         <img src="{{ url_for('static', filename='logo.png') }}" alt="SyllabusBuddy Logo" class="nav-icon">
         <div class="animated-logo">SyllabusQuiz</div>
-        <p>&copy; 2025 MADE BY <a href="https://syllabus-buddy.vercel.app/" class="footer-link">SyllabusBuddy</a> Team ❤️</p>
+        <p>&copy; 2025 MADE BY <a href="https://syllabus-buddy.vercel.app/" class="footer-link">SyllabusBuddy</a> Team
+          ❤️</p>
       </div>
     </div>
   </footer>
@@ -96,4 +143,5 @@
     }
   </script>
 </body>
+
 </html>
