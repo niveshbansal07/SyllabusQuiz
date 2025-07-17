@@ -23,7 +23,7 @@ body {
   padding: 25px;
   margin-bottom: 20px;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .card h2 {
@@ -38,24 +38,33 @@ textarea {
   border-radius: 10px;
   border: 1px solid #ccc;
   font-size: 16px;
+  resize: vertical;
 }
 
-select, input[type="number"] {
-  padding: 8px;
+select,
+input[type="number"] {
+  padding: 10px;
   border-radius: 8px;
   margin: 10px 10px 10px 0;
   font-size: 16px;
   border: 1px solid #ccc;
+  width: 100%;
+  max-width: 300px;
 }
 
 button {
   background-color: #007bff;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
 
 pre {
@@ -65,4 +74,45 @@ pre {
   font-size: 15px;
   white-space: pre-wrap;
   word-wrap: break-word;
-} 
+  overflow-x: auto;
+}
+
+/* ✅ Responsive Styles */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  textarea {
+    height: 120px;
+  }
+
+  select,
+  input[type="number"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.7rem;
+  }
+
+  .card h2 {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 15px;
+  }
+}
