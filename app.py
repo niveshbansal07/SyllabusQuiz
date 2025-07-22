@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
 import google.generativeai as genai
 import os
+from flask import send_file
+
 
 app = Flask(__name__)
 
@@ -19,7 +21,7 @@ def home():
     
 @app.route('/ads.txt')
 def ads():
-    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'ads.txt')
+    return send_file('ads.txt')
     
 @app.route("/generate", methods=["POST"])
 def generate():
