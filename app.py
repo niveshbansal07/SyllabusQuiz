@@ -19,7 +19,7 @@ def home():
     
 @app.route('/ads.txt')
 def ads():
-    return send_from_directory('.', 'ads.txt')
+    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'ads.txt')
     
 @app.route("/generate", methods=["POST"])
 def generate():
