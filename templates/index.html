@@ -1,144 +1,80 @@
-<!DOCTYPE html>
+""<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8452146197004922"
-     crossorigin="anonymous"></script>
-  <title>SyllabusQuiz - By SyllabusBuddy Team</title>
-  <meta name="description"
-    content="Generate AI-powered multiple-choice quizzes instantly with SyllabusQuiz. Perfect for students and educators to create tests from any topic with customizable difficulty and number of questions.">
-  <!-- Keywords -->
-  <meta name="keywords"
-    content="SyllabusQuiz, AI quiz generator, MCQ maker, generate questions from syllabus, online test creator, AI quiz, multiple choice questions, educational quiz, smart exam prep, unit-wise questions, create custom quizzes, syllabus-based quiz, chapter-wise MCQ, generate quiz from topic, quiz from syllabus, AI for education, custom difficulty quiz, study smarter, student exam preparation, interactive quizzes">
-  <!-- Author -->
-  <meta name="author" content="SyllabusBuddy Team">
-  <link rel="canonical" href="https://syllabusquiz.onrender.com/">
-
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="SyllabusQuiz – Generate AI-Based MCQ Quizzes Instantly">
-  <meta property="og:description"
-    content="Create smart, custom multiple-choice quizzes from any topic using AI. Perfect for All students and educators.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://syllabusquiz.onrender.com/">
-  <meta property="og:image" content="https://syllabusquiz.onrender.com/static/logo.png">
-
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SyllabusQuiz – Instantly Generate AI-Powered MCQ Quizzes">
-  <meta name="twitter:description"
-    content="Create custom multiple-choice quizzes from any topic using AI. Perfect for BCA, BTech, MCA students and educators.">
-  <meta name="twitter:image" content="https://syllabusquiz.onrender.com/static/logo.png">
-  <meta name="twitter:url" content="https://syllabusquiz.onrender.com/">
-
-
-
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='navbar-footer.css') }}">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="../static/logo.png" type="image/png">
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "SyllabusQuiz",
-  "url": "https://syllabusquiz.onrender.com/",
-  "logo": "https://syllabusquiz.onrender.com/assets/syllabusquiz-logo.png",
-  "description": "SyllabusQuiz is an AI-powered tool that generates multiple-choice questions (MCQs) based on any topic with difficulty levels. Perfect for BCA, BTech, and MCA exam preparation.",
-  "sameAs": [
-    "https://github.com/niveshbansal07/SyllabusQuiz",
-  ]
-}
-</script>
-
-
+  <meta name="description" content="Generate MCQs with AI on any topic. Free online quiz generator using Google Gemini API." />
+  <meta name="keywords" content="MCQ generator, quiz generator, AI quiz, Gemini API, educational tools, create quiz online" />
+  <meta name="author" content="AllTricks-rk" />
+  <title>AI MCQ Generator | AllTricks-rk</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <script defer src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
-
-<body>
-
-  <header class="navbar">
-    <div class="nav-left">
-      <img src="{{ url_for('static', filename='logo.png') }}" alt="SyllabusQuiz-logo" class="nav-icon">
-      <div class="logo">SyllabusQuiz</div>
-    </div>
-  </header>
-  
-  <div class="container">
-    <h1 class="main-title">AI Quiz Generator - Create Tests & Quizzes Online</h1>
-
-    <div class="card">
-      <h2>Input Your Content</h2>
-      <textarea placeholder="e.g., Python Basics or Photosynthesis..." id="topicInput"></textarea>
-    </div>
-
-    <div class="card">
-      <h2>Customize Your Quiz</h2>
-      <label>Difficulty:
-        <select id="difficultySelect">
-          <option>Easy</option>
-          <option>Medium</option>
-          <option>Hard</option>
-        </select>
-      </label>
-      <label>Questions:
-        <input type="number" id="questionCount" value="5" min="1" max="20">
-      </label>
-      <button onclick="generateQuiz()">Generate AI Quiz</button>
-    </div>
-
-    <div class="card">
-      <h2>Quiz Output</h2>
-      <pre id="output">Your quiz will appear here...</pre>
+<body class="bg-gray-100 text-gray-800">
+  <div class="min-h-screen flex flex-col justify-center items-center px-4">
+    <div class="bg-white rounded-2xl shadow-xl w-full max-w-3xl p-8 space-y-6">
+      <h1 class="text-3xl font-bold text-center text-indigo-600">🧠 AI Quiz Generator</h1>
+      <form id="quizForm" class="space-y-4">
+        <div>
+          <label for="topic" class="block text-sm font-medium">Enter Topic</label>
+          <input type="text" id="topic" name="topic" required class="mt-1 p-2 border w-full rounded-md" />
+        </div>
+        <div>
+          <label for="num_questions" class="block text-sm font-medium">Number of Questions</label>
+          <input type="number" id="num_questions" name="num_questions" min="1" max="20" value="5" class="mt-1 p-2 border w-full rounded-md" />
+        </div>
+        <div>
+          <label for="difficulty" class="block text-sm font-medium">Difficulty</label>
+          <select id="difficulty" name="difficulty" class="mt-1 p-2 border w-full rounded-md">
+            <option value="easy">Easy</option>
+            <option value="moderate">Moderate</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-md w-full transition">Generate MCQs</button>
+      </form>
+      <div id="loading" class="text-center hidden">
+        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_j1adxtyb.json" background="transparent" speed="1" style="width: 120px; height: 120px; margin: auto;" loop autoplay></lottie-player>
+        <p class="text-sm text-gray-500 mt-2">Generating your quiz...</p>
+      </div>
+      <div id="quizOutput" class="whitespace-pre-wrap bg-gray-50 p-4 rounded-md border border-gray-200 overflow-auto max-h-[60vh]"></div>
     </div>
   </div>
-  
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-logo">
-        <img src="{{ url_for('static', filename='logo.png') }}" alt="SyllabusBuddy Logo" class="nav-icon">
-        <div class="animated-logo">SyllabusQuiz</div>
-        <p>&copy; 2025 MADE BY <a href="https://syllabus-buddy.vercel.app/" class="footer-link">SyllabusBuddy</a> Team
-          ❤️</p>
-      </div>
-    </div>
-  </footer>
 
   <script>
-    async function generateQuiz() {
-      const topic = document.getElementById("topicInput").value.trim();
-      const difficulty = document.getElementById("difficultySelect").value;
-      const numQuestions = parseInt(document.getElementById("questionCount").value);
-      const output = document.getElementById("output");
+    const form = document.getElementById('quizForm');
+    const output = document.getElementById('quizOutput');
+    const loading = document.getElementById('loading');
 
-      output.textContent = "⏳ Generating quiz...";
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      output.innerHTML = '';
+      loading.classList.remove('hidden');
+
+      const topic = document.getElementById('topic').value.trim();
+      const num_questions = document.getElementById('num_questions').value;
+      const difficulty = document.getElementById('difficulty').value;
 
       try {
-        const response = await fetch("/generate", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            topic: topic,
-            difficulty: difficulty,
-            num_questions: numQuestions
-          })
+        const response = await fetch('/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ topic, num_questions, difficulty })
         });
 
         const data = await response.json();
+        loading.classList.add('hidden');
 
         if (data.quiz) {
           output.textContent = data.quiz;
         } else {
-          output.textContent = "⚠️ No quiz returned from server.\n" + (data.error || "");
+          output.textContent = '❌ Failed to generate quiz. Please try again.';
         }
-      } catch (error) {
-        output.textContent = "❌ Error contacting server: " + error.message;
+      } catch (err) {
+        loading.classList.add('hidden');
+        output.textContent = '⚠️ Error contacting server. Please check your internet or API configuration.';
       }
-    }
+    });
   </script>
 </body>
-
 </html>
