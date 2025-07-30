@@ -19,10 +19,6 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 def home():
     return render_template("index.html")
     
-@app.route('/ads.txt')
-def ads():
-    return send_file('ads.txt')
-    
 @app.route("/generate", methods=["POST"])
 def generate():
     data = request.get_json()
