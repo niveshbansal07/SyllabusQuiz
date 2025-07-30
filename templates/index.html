@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,12 +114,15 @@
 
       output.textContent = "⏳ Generating quiz...";
 
+      if (!topic) {
+        output.textContent = "⚠️ Please enter a topic.";
+        return;
+      }
+
       try {
         const response = await fetch("/generate", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             topic: topic,
             difficulty: difficulty,
@@ -126,12 +130,18 @@
           })
         });
 
+        if (!response.ok) {
+          const errText = await response.text();
+          output.textContent = "❌ Server Error:\n" + errText;
+          return;
+        }
+
         const data = await response.json();
 
         if (data.quiz) {
-          output.textContent = data.quiz;
+          output.textContent = data.quiz.trim();
         } else {
-          output.textContent = "⚠️ No quiz returned from server.\n" + (data.error || "");
+          output.textContent = "⚠️ No quiz returned.\n" + (data.error || "Unknown error.");
         }
       } catch (error) {
         output.textContent = "❌ Error contacting server: " + error.message;
@@ -139,4 +149,5 @@
     }
   </script>
 </body>
+
 </html>
