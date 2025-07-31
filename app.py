@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 
 # Load API Key from environment
 load_dotenv()
-API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyCCleVyIBEtjUsRxKz1_CPOhEaB0DzOG6U")
+API_KEY = os.getenv("GEMINI_API_KEY")
 
 if not API_KEY:
     raise ValueError("❌ GEMINI_API_KEY is missing. Set it in .env or Render environment.")
